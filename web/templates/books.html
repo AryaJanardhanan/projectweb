@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="{% url 'book' %}">Add Book</a>
+    <h2>Books</h2>
+    <a href="{% url 'bookdownload' %}" class="btn btn-primary">Download</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Pub Date</th>
+                <th>Author</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in book %}
+            <tr>
+                <td>{{ i.title }} </td>
+                <td> {{ i.pub_date }}</td>
+                <td>{{ i.author }}</td>
+                <td>
+                    <form action="{% url 'delt' i.pk %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+                <td>
+                    <a href="{% url 'editt' i.pk %}">Edit</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
