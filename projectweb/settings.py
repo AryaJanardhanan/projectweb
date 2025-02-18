@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-jx_i&+jp(4*auxfh%l7z)2@shloiw7f*=xy!5c)7%f6!%&cy9r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "0.0.0.0"]
 
 
 # Application definition
@@ -77,12 +77,12 @@ WSGI_APPLICATION = 'projectweb.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'database_dj',
-        'USER': 'root',
-        'PASSWORD':'mysql',
-        'HOST':'localhost',
-        'PORT':'3306',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'db',  # This matches the service name in docker-compose.yml
+        'PORT': 5432,
     }
 }
 
@@ -122,7 +122,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -140,3 +140,4 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'aryajanardhanan45@gmail.com' 
 EMAIL_HOST_PASSWORD = 'orko weah gvba yowb'  # Use an App Password for Gmail
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+

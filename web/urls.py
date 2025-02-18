@@ -11,12 +11,12 @@ urlpatterns = [
     path('register/', v.register, name="register"),
     path('userlogin/', v.uslogn, name="uslogn"),
     path('uslogout/', v.uslogout, name="logout"),
-    path('book/', v.book, name="book"),
+    path('bookss/', v.books, name="book"),
     path('bookdetails/', v.bookdetails, name="bookdetails"),
     path('item/<int:pk>/delete/', v.delt, name="delt"),
     path('item/<int:pk>/edit/', v.editt, name="editt"),
     path('download_books/', v.bookdownload, name='bookdownload'),
-
+    
 ]
 
 

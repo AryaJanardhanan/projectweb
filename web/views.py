@@ -79,7 +79,7 @@ def uslogout(request):
     return redirect ('uslogn')
 
 
-def book(request):
+def books(request):
     if request.method == 'POST':
         form = BookForm(request.POST, request.FILES)
         if form.is_valid():
